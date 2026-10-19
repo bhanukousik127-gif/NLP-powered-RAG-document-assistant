@@ -5,7 +5,7 @@
 [![Python](https://img.shields.io/badge/Python-3.11%20%7C%203.12%20%7C%203.13-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://python.org)
 [![Flask](https://img.shields.io/badge/Flask-3.1-000000?style=for-the-badge&logo=flask&logoColor=white)](https://flask.palletsprojects.com/)
 [![Scikit-Learn](https://img.shields.io/badge/Scikit--Learn-1.9-F7931E?style=for-the-badge&logo=scikit-learn&logoColor=white)](https://scikit-learn.org/)
-[![Google GenAI](https://img.shields.io/badge/Google%20GenAI-Gemini%202.5-4285F4?style=for-the-badge&logo=google&logoColor=white)](https://ai.google.dev/)
+[![CI Test Suite](https://github.com/bhanukousik127-gif/NLP-powered-RAG-document-assistant/actions/workflows/ci.yml/badge.svg)](https://github.com/bhanukousik127-gif/NLP-powered-RAG-document-assistant/actions)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)](https://opensource.org/licenses/MIT)
 
 **A high-performance, evidence-grounded Retrieval-Augmented Generation (RAG) assistant combining Okapi BM25 lexical keyword matching, Dense Vector Semantic Embeddings, Reciprocal Rank Fusion (RRF), and NLP document intelligence.**
