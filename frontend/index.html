@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RAGNova | NLP-Powered RAG Document Assistant</title>
+    <meta name="description" content="Next-generation NLP-powered Retrieval-Augmented Generation (RAG) assistant featuring Okapi BM25, Dense Vector Embeddings, Reciprocal Rank Fusion, Linguistic Analysis, and Source Grounding.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="dark-theme">
+    <!-- Top Header -->
+    <header class="app-header">
+        <div class="header-left">
+            <div class="logo-container">
+                <div class="logo-icon-glow">
+                    <svg class="logo-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polygon points="12 2 2 7 12 12 22 7 12 2" />
+                        <polyline points="2 17 12 22 22 17" />
+                        <polyline points="2 12 12 17 22 12" />
+                    </svg>
+                </div>
+                <div class="logo-text-group">
+                    <div class="logo-title">
+                        <span class="gradient-text">RAGNova</span>
+                        <span class="badge-nlp">NLP CORE</span>
+                    </div>
+                    <span class="logo-subtitle">Intelligent Document Retrieval & Grounding</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="header-center">
+            <div class="status-pill" id="system-status-pill">
+                <span class="status-pulse-dot"></span>
+                <span id="system-status-text">RAG Hybrid Engine Ready</span>
+                <span class="provider-pill" id="header-provider-badge">Local NLP</span>
+            </div>
+        </div>
+
+        <div class="header-right">
+            <button class="nav-btn" id="btn-open-settings" title="Configure RAG Pipeline & API Keys">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="3"></circle>
+                    <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+                </svg>
+                <span>Pipeline Settings</span>
+            </button>
+            <a href="https://github.com/bhanukousik127-gif/NLP-powered-RAG-document-assistant" target="_blank" rel="noopener noreferrer" class="nav-btn github-btn" id="github-link-btn" title="View on GitHub">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                </svg>
+                <span>GitHub</span>
+            </a>
+        </div>
+    </header>
+
+    <!-- Main Application Container -->
+    <div class="app-layout">
+        <!-- Left Sidebar: Document Management & Ingestion -->
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-section-header">
+                <h3>Document Library</h3>
+                <span class="counter-badge" id="doc-counter">0 Docs</span>
+            </div>
+
+            <!-- Upload Drop Area -->
+            <div class="upload-dropzone" id="drop-zone">
+                <input type="file" id="file-input" multiple accept=".pdf,.docx,.doc,.txt,.md,.markdown,.csv,.json" hidden>
+                <div class="upload-icon-wrapper">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                        <polyline points="17 8 12 3 7 8"></polyline>
+                        <line x1="12" y1="3" x2="12" y2="15"></line>
+                    </svg>
+                </div>
+                <div class="upload-text-main">Drop files or <span class="browse-link">browse</span></div>
+                <div class="upload-subtext">PDF, DOCX, TXT, MD, CSV, JSON</div>
+                <div class="upload-progress-bar" id="upload-progress-bar">
+                    <div class="upload-progress-fill" id="upload-progress-fill"></div>
+                </div>
+            </div>
+
+            <!-- Quick Action: Load Sample Docs -->
+            <button class="secondary-btn" id="btn-load-sample" title="Instant load sample docs">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                    <polyline points="14 2 14 8 20 8"></polyline>
+                    <line x1="16" y1="13" x2="8" y2="13"></line>
+                    <line x1="16" y1="17" x2="8" y2="17"></line>
+                    <polyline points="10 9 9 9 8 9"></polyline>
+                </svg>
+                <span>Load Sample Documents</span>
+            </button>
+
+            <!-- Document List -->
+            <div class="document-list" id="document-list">
+                <div class="empty-docs-state" id="empty-docs-state">
+                    <p>No documents uploaded yet.</p>
+                    <small>Upload files or load samples to activate NLP indexing.</small>
+                </div>
+            </div>
+
+            <!-- Bottom Quick Metrics -->
+            <div class="sidebar-footer">
+                <div class="metric-row">
+                    <span class="metric-label">Total Indexed Chunks:</span>
+                    <span class="metric-val" id="footer-chunk-count">0</span>
+                </div>
+                <div class="metric-row">
+                    <span class="metric-label">Retrieval Mode:</span>
+                    <span class="metric-val accent-text" id="footer-retrieval-mode">Hybrid RRF</span>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Center Workspace: Tabs for Chat, NLP Analytics, and Chunk Explorer -->
+        <main class="main-content">
+            <!-- Navigation Tabs -->
+            <div class="nav-tabs-bar">
+                <button class="tab-btn active" data-tab="tab-chat" id="tab-btn-chat">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                    </svg>
+                    <span>RAG Assistant</span>
+                </button>
+                <button class="tab-btn" data-tab="tab-analytics" id="tab-btn-analytics">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21.21 15.89A10 10 0 1 1 8 2.83"></path>
+                        <path d="M22 12A10 10 0 0 0 12 2v10z"></path>
+                    </svg>
+                    <span>Document NLP Intelligence</span>
+                </button>
+                <button class="tab-btn" data-tab="tab-chunks" id="tab-btn-chunks">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="3" y="3" width="7" height="7"></rect>
+                        <rect x="14" y="3" width="7" height="7"></rect>
+                        <rect x="14" y="14" width="7" height="7"></rect>
+                        <rect x="3" y="14" width="7" height="7"></rect>
+                    </svg>
+                    <span>Chunk & Vector Explorer</span>
+                </button>
+            </div>
+
+            <!-- TAB 1: Chat Assistant -->
+            <section class="tab-pane active" id="tab-chat">
+                <div class="chat-container">
+                    <div class="chat-messages" id="chat-messages">
+                        <!-- Welcome message -->
+                        <div class="message-row assistant-row">
+                            <div class="avatar-assistant">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <polygon points="12 2 2 7 12 12 22 7 12 2" />
+                                    <polyline points="2 17 12 22 22 17" />
+                                    <polyline points="2 12 12 17 22 12" />
+                                </svg>
+                            </div>
+                            <div class="message-bubble assistant-bubble">
+                                <div class="message-header">
+                                    <span class="sender-name">RAGNova Assistant</span>
+                                    <span class="grounding-badge">Evidence-Grounded</span>
+                                </div>
+                                <div class="message-text">
+                                    <p>Hello! I am your <strong>NLP-Powered Document Assistant</strong>.</p>
+                                    <p>I combine <strong>Okapi BM25</strong> lexical search and <strong>Dense Vector Embeddings</strong> through <em>Reciprocal Rank Fusion (RRF)</em> to retrieve evidence with exact page and chunk attribution.</p>
+                                    <p>Upload your documents or click <strong>"Load Sample Documents"</strong> in the sidebar to test my grounding capabilities!</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Suggested Prompts / Dynamic NLP Questions -->
+                    <div class="suggested-prompts-wrapper" id="suggested-prompts-wrapper">
+                        <span class="suggested-title">Suggested Inquiries:</span>
+                        <div class="prompts-chips" id="prompts-chips">
+                            <button class="prompt-chip" data-prompt="What is the architecture and self-attention mechanism of the Transformer?">What is the Transformer attention mechanism?</button>
+                            <button class="prompt-chip" data-prompt="Compare Superconducting qubits vs Trapped-Ion quantum systems.">Compare Superconducting vs Trapped-Ion qubits</button>
+                            <button class="prompt-chip" data-prompt="What are the key clean energy milestones and storage technologies in 2025?">Clean energy milestones & storage tech</button>
+                        </div>
+                    </div>
+
+                    <!-- Chat Input Box -->
+                    <div class="chat-input-area">
+                        <form id="chat-form" class="chat-form">
+                            <div class="input-wrapper">
+                                <textarea id="chat-input" rows="1" placeholder="Ask any question grounded in your uploaded documents... (Press Enter to send)"></textarea>
+                                <button type="button" class="clear-history-btn" id="btn-clear-chat" title="Clear conversation history">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <polyline points="3 6 5 6 21 6"></polyline>
+                                        <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
+                                    </svg>
+                                </button>
+                                <button type="submit" class="send-btn" id="btn-send" title="Send query">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <line x1="22" y1="2" x2="11" y2="13"></line>
+                                        <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                                    </svg>
+                                </button>
+                            </div>
+                        </form>
+                        <div class="chat-footer-status">
+                            <span id="chat-latency-indicator">⚡ Grounded in uploaded context</span>
+                            <span>Strict anti-hallucination guardrail active</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- TAB 2: Document NLP Intelligence Suite -->
+            <section class="tab-pane" id="tab-analytics">
+                <div class="analytics-container">
+                    <div class="analytics-header">
+                        <h2>Document NLP & Linguistic Intelligence</h2>
+                        <div class="doc-selector-wrapper">
+                            <label for="analytics-doc-select">Selected Document:</label>
+                            <select id="analytics-doc-select" class="custom-select">
+                                <option value="">Select a document to inspect...</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div id="analytics-empty-state" class="empty-panel-state">
+                        <div class="empty-icon">📊</div>
+                        <h3>No Document Selected</h3>
+                        <p>Upload a document or select one from the dropdown above to view linguistic metrics, readability scores, and extracted entities.</p>
+                    </div>
+
+                    <div id="analytics-content-view" class="analytics-grid" style="display: none;">
+                        <!-- Row 1: Key Metrics Cards -->
+                        <div class="stats-row">
+                            <div class="stat-card">
+                                <div class="stat-icon purple-glow">📝</div>
+                                <div class="stat-info">
+                                    <span class="stat-title">Total Words</span>
+                                    <span class="stat-value" id="stat-words">0</span>
+                                </div>
+                            </div>
+                            <div class="stat-card">
+                                <div class="stat-icon cyan-glow">🔤</div>
+                                <div class="stat-info">
+                                    <span class="stat-title">Lexical Diversity</span>
+                                    <span class="stat-value" id="stat-diversity">0%</span>
+                                </div>
+                            </div>
+                            <div class="stat-card">
+                                <div class="stat-icon green-glow">📖</div>
+                                <div class="stat-info">
+                                    <span class="stat-title">Flesch Readability</span>
+                                    <span class="stat-value" id="stat-readability">0 / 100</span>
+                                </div>
+                            </div>
+                            <div class="stat-card">
+                                <div class="stat-icon amber-glow">⏱️</div>
+                                <div class="stat-info">
+                                    <span class="stat-title">Est. Reading Time</span>
+                                    <span class="stat-value" id="stat-reading-time">0 min</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Row 2: Extractive Summary -->
+                        <div class="glass-card full-width-card">
+                            <div class="card-header">
+                                <h3>Executive NLP Extractive Summary</h3>
+                                <span class="card-badge">TextRank Salience</span>
+                            </div>
+                            <div class="card-body">
+                                <p id="nlp-summary-text" class="summary-text">Summary will appear here...</p>
+                            </div>
+                        </div>
+
+                        <!-- Row 3: Keywords & Entities -->
+                        <div class="two-column-grid">
+                            <div class="glass-card">
+                                <div class="card-header">
+                                    <h3>Top Keyphrases (TF-IDF)</h3>
+                                </div>
+                                <div class="card-body" id="nlp-keywords-list">
+                                    <!-- Dynamic Keyword Bars -->
+                                </div>
+                            </div>
+
+                            <div class="glass-card">
+                                <div class="card-header">
+                                    <h3>Extracted Named Entities & Domain Concepts</h3>
+                                </div>
+                                <div class="card-body" id="nlp-entities-list">
+                                    <!-- Dynamic Entities -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- TAB 3: Chunk & Vector Space Explorer -->
+            <section class="tab-pane" id="tab-chunks">
+                <div class="chunks-container">
+                    <div class="chunks-header">
+                        <div>
+                            <h2>Chunk & Retrieval Space Explorer</h2>
+                            <p class="section-sub">Inspect how documents are partitioned and simulate multi-index retrieval rankings.</p>
+                        </div>
+                        <div class="retrieval-simulator">
+                            <input type="text" id="sim-query-input" placeholder="Type a test query to simulate rankings..." class="sim-input">
+                            <button id="btn-sim-search" class="secondary-btn">Simulate Retrieval</button>
+                        </div>
+                    </div>
+
+                    <!-- Chunks List / Search Results -->
+                    <div class="chunks-list" id="chunks-list">
+                        <div class="empty-panel-state">
+                            <p>No chunks indexed yet. Ingest documents to inspect chunk boundaries and vector distances.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Right Slide-over Drawer: Citation Source Inspector -->
+        <aside class="citation-drawer" id="citation-drawer">
+            <div class="drawer-header">
+                <div class="drawer-title-group">
+                    <span class="drawer-tag">EVIDENCE ATTRIBUTION</span>
+                    <h3 id="drawer-doc-name">Source Document</h3>
+                </div>
+                <button class="drawer-close-btn" id="btn-close-drawer">&times;</button>
+            </div>
+            <div class="drawer-body">
+                <div class="drawer-meta-pills">
+                    <span class="meta-pill" id="drawer-page-pill">Page 1</span>
+                    <span class="meta-pill" id="drawer-chunk-id-pill">Chunk ID</span>
+                    <span class="meta-pill score-pill" id="drawer-score-pill">Match: 95%</span>
+                </div>
+                <div class="drawer-section-title">Verified Text Excerpt</div>
+                <blockquote class="drawer-quote" id="drawer-full-text">
+                    Excerpt text will appear here...
+                </blockquote>
+            </div>
+        </aside>
+    </div>
+
+    <!-- Modal: Settings Drawer -->
+    <div class="modal-backdrop" id="settings-modal" style="display: none;">
+        <div class="modal-dialog">
+            <div class="modal-header">
+                <h3>RAG Pipeline & Model Configuration</h3>
+                <button class="modal-close-btn" id="btn-close-settings">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="settings-form">
+                    <!-- LLM Provider Section -->
+                    <div class="form-section">
+                        <h4>LLM Generation Provider</h4>
+                        <div class="form-group">
+                            <label for="input-api-key">Google Gemini API Key (Optional)</label>
+                            <input type="password" id="input-api-key" placeholder="Enter AI Studio Key (or leave blank for offline local mode)" class="form-input">
+                            <small class="form-help">Leave blank to use the built-in 100% offline NLP engine. Add a key to unlock Google Gemini 2.0 Flash reasoning.</small>
+                        </div>
+                        <div class="form-group">
+                            <label for="select-gemini-model">Gemini Model</label>
+                            <select id="select-gemini-model" class="form-input">
+                                <option value="gemini-2.5-flash">gemini-2.5-flash (Fast & Accurate)</option>
+                                <option value="gemini-2.0-flash">gemini-2.0-flash (Latest General)</option>
+                                <option value="gemini-1.5-flash">gemini-1.5-flash (High Throughput)</option>
+                                <option value="gemini-1.5-pro">gemini-1.5-pro (Deep Reasoning)</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Retrieval Hyperparameters -->
+                    <div class="form-section">
+                        <h4>Retrieval & Indexing Hyperparameters</h4>
+                        
+                        <div class="form-group">
+                            <label for="select-retrieval-mode">Retrieval Strategy</label>
+                            <select id="select-retrieval-mode" class="form-input">
+                                <option value="hybrid">Hybrid (Reciprocal Rank Fusion - BM25 + Vector)</option>
+                                <option value="vector">Dense Vector Cosine Similarity Only</option>
+                                <option value="bm25">Okapi BM25 Lexical Keyword Search Only</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="slider-label-row">
+                                <label for="range-alpha">Hybrid Balance (Alpha Weight)</label>
+                                <span class="slider-val" id="val-alpha">0.50 (Balanced)</span>
+                            </div>
+                            <input type="range" id="range-alpha" min="0" max="1" step="0.05" value="0.5" class="form-slider">
+                            <div class="slider-legend">
+                                <span>Dense Vector (0.0)</span>
+                                <span>Okapi BM25 (1.0)</span>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group half">
+                                <div class="slider-label-row">
+                                    <label for="range-chunk-size">Chunk Size</label>
+                                    <span class="slider-val" id="val-chunk-size">600 chars</span>
+                                </div>
+                                <input type="range" id="range-chunk-size" min="200" max="1500" step="50" value="600" class="form-slider">
+                            </div>
+                            <div class="form-group half">
+                                <div class="slider-label-row">
+                                    <label for="range-chunk-overlap">Chunk Overlap</label>
+                                    <span class="slider-val" id="val-chunk-overlap">120 chars</span>
+                                </div>
+                                <input type="range" id="range-chunk-overlap" min="0" max="300" step="10" value="120" class="form-slider">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="slider-label-row">
+                                <label for="range-top-k">Top-K Retrieved Chunks</label>
+                                <span class="slider-val" id="val-top-k">4 chunks</span>
+                            </div>
+                            <input type="range" id="range-top-k" min="1" max="10" step="1" value="4" class="form-slider">
+                        </div>
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="button" class="secondary-btn" id="btn-cancel-settings">Cancel</button>
+                        <button type="submit" class="primary-btn" id="btn-save-settings">Save & Apply Changes</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="app.js"></script>
+</body>
+</html>

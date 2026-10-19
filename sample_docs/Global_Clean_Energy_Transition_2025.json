@@ -1,0 +1,48 @@
+{
+  "report_title": "Global Clean Energy Transition Outlook 2025-2030",
+  "published_year": 2025,
+  "authoring_body": "International Sustainable Energy Council",
+  "summary": {
+    "key_takeaway": "Global clean energy investments exceeded $1.8 trillion in 2024, driven by massive expansions in solar photovoltaics, offshore wind installations, and grid-scale lithium iron phosphate (LFP) battery storage.",
+    "projected_capacity_addition_gw": 620,
+    "target_emissions_reduction_pct": 38.5
+  },
+  "renewable_sectors": [
+    {
+      "sector": "Solar Photovoltaic (PV)",
+      "global_capacity_gw": 1850,
+      "levelized_cost_of_energy_usd_mwh": 36.2,
+      "key_innovations": [
+        "Perovskite-silicon tandem cells achieving 33.9% laboratory efficiency",
+        "Bifacial n-type TOPCon commercial panel dominance",
+        "Automated robotic cleaning systems for arid regions"
+      ],
+      "leading_countries": ["China", "United States", "India", "Germany", "Brazil"]
+    },
+    {
+      "sector": "Wind Energy",
+      "global_capacity_gw": 1120,
+      "levelized_cost_of_energy_usd_mwh": 44.8,
+      "key_innovations": [
+        "18 MW offshore turbines with 260-meter rotor diameters",
+        "Floating offshore wind foundations for deepwater deployments",
+        "Recyclable thermoset composite turbine blades"
+      ],
+      "leading_countries": ["China", "United States", "Germany", "United Kingdom", "Denmark"]
+    },
+    {
+      "sector": "Energy Storage Systems",
+      "total_installed_gwh": 280,
+      "dominant_chemistry": "Lithium Iron Phosphate (LiFePO4) accounting for 78% of utility-scale storage",
+      "emerging_alternatives": [
+        "Sodium-ion batteries for stationary stationary cold-weather storage",
+        "Iron-air 100-hour multi-day discharge flow batteries",
+        "Compressed carbon dioxide thermo-mechanical energy storage"
+      ]
+    }
+  ],
+  "policy_frameworks": {
+    "carbon_pricing_coverage": "31% of global greenhouse gas emissions covered by ETS or carbon taxes",
+    "critical_mineral_supply_chain": "Diversification mandates established by the EU Critical Raw Materials Act and US Inflation Reduction Act to diminish supply concentration for lithium, nickel, cobalt, and neodymium."
+  }
+}
