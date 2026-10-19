@@ -40,7 +40,7 @@ class RAGEngine:
         self.retrieval_mode = "hybrid"  # "hybrid", "vector", "bm25"
         self.alpha = 0.5                # 0.0 = pure vector, 1.0 = pure BM25
         self.gemini_api_key = os.getenv("GEMINI_API_KEY", "")
-        self.gemini_model = "gemini-2.5-flash"
+        self.gemini_model = "gemini-2.0-flash"
 
         # State storage
         self.documents: Dict[str, Dict[str, Any]] = {}  # doc_id -> metadata & text

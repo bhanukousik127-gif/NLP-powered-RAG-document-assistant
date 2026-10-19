@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", () => {
             top_k: 4,
             retrieval_mode: "hybrid",
             alpha: 0.5,
-            gemini_model: "gemini-2.5-flash",
+            gemini_model: "gemini-2.0-flash",
             has_api_key: false
         },
         citationsCache: {}
@@ -808,7 +808,7 @@ document.addEventListener("DOMContentLoaded", () => {
         rangeTopK.value = s.top_k || 4;
         valTopK.textContent = `${s.top_k || 4} chunks`;
         selectRetrievalMode.value = s.retrieval_mode || "hybrid";
-        selectGeminiModel.value = s.gemini_model || "gemini-2.5-flash";
+        selectGeminiModel.value = s.gemini_model || "gemini-2.0-flash";
     }
 
     async function handleSettingsSubmit(e) {

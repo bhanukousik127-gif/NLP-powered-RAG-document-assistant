@@ -5,6 +5,7 @@
 [![Python](https://img.shields.io/badge/Python-3.11%20%7C%203.12%20%7C%203.13-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://python.org)
 [![Flask](https://img.shields.io/badge/Flask-3.1-000000?style=for-the-badge&logo=flask&logoColor=white)](https://flask.palletsprojects.com/)
 [![Scikit-Learn](https://img.shields.io/badge/Scikit--Learn-1.9-F7931E?style=for-the-badge&logo=scikit-learn&logoColor=white)](https://scikit-learn.org/)
+[![Google GenAI](https://img.shields.io/badge/Google_GenAI-Gemini_2.0_Flash-4285F4?style=for-the-badge&logo=googlegemini&logoColor=white)](https://ai.google.dev/)
 [![CI Test Suite](https://github.com/bhanukousik127-gif/NLP-powered-RAG-document-assistant/actions/workflows/ci.yml/badge.svg)](https://github.com/bhanukousik127-gif/NLP-powered-RAG-document-assistant/actions)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)](https://opensource.org/licenses/MIT)
 
@@ -30,7 +31,7 @@
   - **Extractive Executive Summary**: Generates concise TextRank-style summaries.
 - **🔌 Multi-Model Flexibility**:
   - **100% Offline Mode**: Runs completely locally with zero external API keys using built-in semantic vectorizers and local NLP answer synthesizers.
-  - **Google Gemini Integration**: Plug in an API key to unlock **Gemini 2.5 Flash**, **2.0 Flash**, or **1.5 Pro** reasoning and `text-embedding-004` neural vectors.
+  - **Google Gemini Integration**: Plug in an API key to unlock **Gemini 2.0 Flash**, **1.5 Flash**, or **1.5 Pro** reasoning and `text-embedding-004` neural vectors.
 - **📂 Multi-Format Ingestion**: Ingests **PDF**, **DOCX**, **TXT**, **Markdown**, **CSV**, and **JSON** with boundary-aware recursive splitting.
 - **🎨 Glassmorphic Modern UI**: Dark-theme obsidian dashboard, interactive sliders, dynamic suggested questions, and chunk explorer.
 
@@ -65,7 +66,7 @@ flowchart TD
     subgraph Generation["4. Grounded Synthesis"]
         TopK --> PromptBuilder[Prompt Builder with Citations & Guardrails]
         PromptBuilder --> Generator{Provider Selector}
-        Generator -->|API Key Set| Gemini[Google Gemini 2.5 / 2.0 Flash]
+        Generator -->|API Key Set| Gemini[Google Gemini 2.0 Flash / 1.5 Pro]
         Generator -->|Offline Mode| LocalNLP[Built-in Extractive NLP Synthesizer]
         Gemini --> Response[Grounded Answer + Clickable Citations]
         LocalNLP --> Response
@@ -126,7 +127,7 @@ You can adjust hyperparameters on-the-fly via the **Pipeline Settings** modal:
 | **Top-K Retrieved** | `4` chunks | Number of highest-ranked chunks passed to the context window. |
 | **Retrieval Strategy** | `Hybrid RRF` | Choose between `Hybrid`, `Dense Vector Only`, or `Okapi BM25 Only`. |
 | **Alpha Balance ($\alpha$)** | `0.50` | Relative weighting between BM25 sparse keyword rank and Dense vector semantic rank. |
-| **LLM Provider** | `Offline NLP` | Switch dynamically to `Google Gemini (gemini-2.5-flash)` by adding an API key. |
+| **LLM Provider** | `Offline NLP` | Switch dynamically to `Google Gemini (gemini-2.0-flash)` by adding an API key. |
 
 ---
 
